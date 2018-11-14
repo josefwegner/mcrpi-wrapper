@@ -48,7 +48,7 @@ static void *dlsym_assert(void *handle, const char *symbol) {
 }
 
 static void *get_from_libEGL(const char *symbol) {
-	static void *libEGL; 
+	static void *libEGL;
 	if (!libEGL) {
 		libEGL = dlopen("libEGL.so", RTLD_LAZY);
 		if (!libEGL) {
