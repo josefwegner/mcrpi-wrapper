@@ -102,14 +102,12 @@ EGLAPI EGLBoolean EGLAPIENTRY eglBindAPI(EGLenum api)
 	static EGLBoolean ret;
 	static int counter = 0;
 
-	fprintf(stderr, "eglBindAPI(%d): ", api);
 	if (!eglBindAPIReal)
 		eglBindAPIReal = get_from_libEGL("eglBindAPI");
 
 	switch(counter++) {
 	default:
 		ret = eglBindAPIReal(api);
-		fprintf(stderr, "%d\n", ret);
 		return ret;
 	}
 }
@@ -120,7 +118,6 @@ EGLAPI EGLBoolean EGLAPIENTRY eglTerminate(EGLDisplay dpy)
 	static EGLBoolean ret;
 	static int counter = 0;
 
-	fprintf(stderr, "eglTerminateReal(%p): ", dpy);
 	if (!eglTerminateReal)
 		eglTerminateReal = get_from_libEGL("eglTerminate");
 
@@ -131,7 +128,6 @@ EGLAPI EGLBoolean EGLAPIENTRY eglTerminate(EGLDisplay dpy)
 
 	default:
 		ret = eglTerminateReal(dpy);
-		fprintf(stderr, "%d\n", ret);
 		return ret;
 	}
 }
@@ -142,7 +138,6 @@ EGLAPI EGLBoolean EGLAPIENTRY eglDestroySurface(EGLDisplay dpy, EGLSurface surfa
 	static EGLBoolean ret;
 	static int counter = 0;
 
-	fprintf(stderr, "eglDestroySurface(%d, %d): ", dpy, surface);
 	if (!eglDestroySurfaceReal)
 		eglDestroySurfaceReal = get_from_libEGL("eglDestroySurface");
 
@@ -154,7 +149,6 @@ EGLAPI EGLBoolean EGLAPIENTRY eglDestroySurface(EGLDisplay dpy, EGLSurface surfa
 
 	default:
 		ret = eglDestroySurfaceReal(dpy, surface);
-		fprintf(stderr, "%d\n", ret);
 		return ret;
 	}
 }
@@ -165,7 +159,6 @@ EGLAPI EGLBoolean EGLAPIENTRY eglSwapBuffers(EGLDisplay dpy, EGLSurface surface)
 	static EGLBoolean ret;
 	static int counter = 0;
 
-//	fprintf(stderr, "eglSwapBuffers(%p, %p): ", dpy, surface);
 	if (!eglSwapBuffersReal)
 		eglSwapBuffersReal = get_from_libEGL("eglSwapBuffers");
 
@@ -183,7 +176,6 @@ EGLAPI EGLBoolean EGLAPIENTRY eglSwapBuffers(EGLDisplay dpy, EGLSurface surface)
 
 	default:
 		ret = eglSwapBuffersReal(dpy, surface);
-		//fprintf(stderr, "%d\n", ret);
 		return ret;
 	}
 }
@@ -199,7 +191,6 @@ EGLAPI EGLContext EGLAPIENTRY eglCreateContext(EGLDisplay dpy, EGLConfig config,
 	static EGLContext *ret;
 	static int counter = 0;
 
-	fprintf(stderr, "eglCreateContext(%p, %p, %p, %p): ", dpy, config, share_context, attrib_list);
 	if (!eglCreateContextReal)
 		eglCreateContextReal = get_from_libEGL("eglCreateContext");
 
@@ -210,7 +201,6 @@ EGLAPI EGLContext EGLAPIENTRY eglCreateContext(EGLDisplay dpy, EGLConfig config,
 
 	case 1:
 		ret = eglCreateContextReal(dpy, config, share_context, attrib_list);
-		fprintf(stderr, "%p\n", ret);
 		return ret;
 
 	default:
@@ -229,7 +219,6 @@ EGLAPI EGLBoolean EGLAPIENTRY eglChooseConfig(EGLDisplay dpy, const EGLint *attr
 	static EGLBoolean ret;
 	static int counter = 0;
 
-	fprintf(stderr, "eglChooseConfig(%p, %p, %p, %d, %p): ", dpy, attrib_list, configs, config_size, num_config);
 	if (!eglChooseConfigReal)
 		eglChooseConfigReal = get_from_libEGL("eglChooseConfig");
 
@@ -240,7 +229,6 @@ EGLAPI EGLBoolean EGLAPIENTRY eglChooseConfig(EGLDisplay dpy, const EGLint *attr
 
 	case 1:
 		ret = eglChooseConfigReal(dpy, attrib_list, configs, config_size, num_config);
-		fprintf(stderr, "%d\n", ret);
 		return ret;
 
 	default:
@@ -255,7 +243,6 @@ EGLAPI EGLBoolean EGLAPIENTRY eglInitialize(EGLDisplay dpy, EGLint *major, EGLin
 	static EGLBoolean (*eglInitializeReal)(EGLDisplay dpy, EGLint *major, EGLint *minor);
 	static EGLBoolean ret;
 	static int counter = 0;
-	fprintf(stderr, "eglInitialize(%p, %p, %p): ", dpy, major, minor);
 	if (!eglInitializeReal)
 		eglInitializeReal = get_from_libEGL("eglInitialize");
 
@@ -266,7 +253,6 @@ EGLAPI EGLBoolean EGLAPIENTRY eglInitialize(EGLDisplay dpy, EGLint *major, EGLin
 
 	case 1:
 		ret = eglInitializeReal(dpy, major, minor);
-		fprintf(stderr, "%d\n", ret);
 		return ret;
 
 	default:
@@ -283,7 +269,6 @@ EGLAPI EGLBoolean EGLAPIENTRY eglMakeCurrent(EGLDisplay dpy, EGLSurface draw,
 	static EGLBoolean ret;
 	static int counter = 0;
 
-	fprintf(stderr, "eglMakeCurrent(%p, %p, %p, %p): ", dpy, draw, read, ctx);
 	if (!eglMakeCurrentReal)
 		eglMakeCurrentReal = get_from_libEGL("eglMakeCurrent");
 
@@ -295,7 +280,6 @@ EGLAPI EGLBoolean EGLAPIENTRY eglMakeCurrent(EGLDisplay dpy, EGLSurface draw,
 
 	case 2:
 		ret = eglMakeCurrentReal(dpy, draw, read, ctx);
-		fprintf(stderr, "%d\n", ret);
 		return ret;
 
 	default:
@@ -310,7 +294,6 @@ EGLAPI EGLDisplay EGLAPIENTRY eglGetDisplay(EGLNativeDisplayType display_id)
 	static EGLDisplay ret;
 	static int counter = 0;
 
-	fprintf(stderr, "eglGetDisplay(%d): ", display_id);
 	if (!eglGetDisplayReal)
 		eglGetDisplayReal = get_from_libEGL("eglGetDisplay");
 
@@ -321,7 +304,6 @@ EGLAPI EGLDisplay EGLAPIENTRY eglGetDisplay(EGLNativeDisplayType display_id)
 
 	case 1:
 		ret = eglGetDisplayReal(display_id);
-		fprintf(stderr, "%p\n", ret);
 		return ret;
 
 	default:
@@ -341,8 +323,6 @@ EGLAPI EGLSurface EGLAPIENTRY eglCreateWindowSurface(EGLDisplay dpy, EGLConfig c
 	static EGLSurface *ret;
 	SDL_SysWMinfo sysInfo; //Will hold our Window information
 
-	fprintf(stderr, "eglCreateWindowSurface(%p, %p, %p, %p): ", dpy, config, win, attrib_list);
-
 	if (!eglCreateWindowSurfaceReal)
 		eglCreateWindowSurfaceReal = get_from_libEGL("eglCreateWindowSurface");
 
@@ -360,7 +340,6 @@ EGLAPI EGLSurface EGLAPIENTRY eglCreateWindowSurface(EGLDisplay dpy, EGLConfig c
 		}
 
 		ret = eglCreateWindowSurfaceReal(dpy, config, (EGLNativeWindowType)sysInfo.info.x11.window, attrib_list);
-		fprintf(stderr, "%p\n", ret);
 		return ret;
 
 	default:
@@ -371,7 +350,6 @@ EGLAPI EGLSurface EGLAPIENTRY eglCreateWindowSurface(EGLDisplay dpy, EGLConfig c
 
 
 int32_t graphics_get_display_size( const uint16_t display_number, uint32_t *width, uint32_t *height) {
-	printf("graphics_get_display_size(%d, %p, %p)\n", display_number, width, height);
 	*width = 2560;
 	*height = 1700;
 
@@ -381,7 +359,6 @@ int32_t graphics_get_display_size( const uint16_t display_number, uint32_t *widt
 }
 
 int vc_dispmanx_display_open(int device) {
-	printf("vc_dispmanx_display_open(%d)\n", device);
 	return 0;
 }
 
@@ -391,28 +368,21 @@ DISPMANX_ELEMENT_HANDLE_T vc_dispmanx_element_add ( DISPMANX_UPDATE_HANDLE_T upd
 		const VC_RECT_T *src_rect, DISPMANX_PROTECTION_T protection,
 		VC_DISPMANX_ALPHA_T *alpha,
 		DISPMANX_CLAMP_T *clamp, DISPMANX_TRANSFORM_T transform )  {
-	printf("vc_dispmanx_element_add(%p, %p, %d, %p, %p, %p, %p, %p, %p, %p)\n",
-			update, display, layer, dest_rect, src, src_rect, protection,
-					      alpha, clamp, transform);
 	return NULL;
 }
 
 int vc_dispmanx_update_submit_sync( DISPMANX_UPDATE_HANDLE_T update ) {
-	printf("vc_dispmanx_update_submit_sync(%p)\n", update);
 	return 0;
 }
 
 void bcm_host_deinit(void) {
-	printf("bcm_host_deinit()\n");
 	return;
 }
 
 int vc_dispmanx_update_start( int32_t priority ) {
-	printf("vc_dispmanx_update_start(%d)\n", priority);
 	return 0;
 }
 
 void bcm_host_init(void) {
-	printf("bcm_host_init()\n");
 	return;
 }
