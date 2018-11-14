@@ -376,6 +376,7 @@ int32_t graphics_get_display_size( const uint16_t display_number, uint32_t *widt
 	*height = 1700;
 
 	SDL_SetVideoMode(*width, *height, 32, SDL_FULLSCREEN);// | SDL_RESIZABLE);
+	SDL_ShowCursor (SDL_DISABLE);
 	return 0;
 }
 
