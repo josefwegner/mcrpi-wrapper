@@ -121,6 +121,7 @@ EGLAPI EGLBoolean EGLAPIENTRY eglTerminate(EGLDisplay dpy)
 	if (!eglTerminateReal)
 		eglTerminateReal = get_from_libEGL("eglTerminate");
 
+counter = 1;
 	switch(counter++) {
 	case 0:
 		fprintf(stderr, "1 (lying)\n");
@@ -141,6 +142,7 @@ EGLAPI EGLBoolean EGLAPIENTRY eglDestroySurface(EGLDisplay dpy, EGLSurface surfa
 	if (!eglDestroySurfaceReal)
 		eglDestroySurfaceReal = get_from_libEGL("eglDestroySurface");
 
+counter = 2;
 	switch(counter++) {
 	case 0:
 	case 1:
@@ -162,6 +164,7 @@ EGLAPI EGLBoolean EGLAPIENTRY eglSwapBuffers(EGLDisplay dpy, EGLSurface surface)
 	if (!eglSwapBuffersReal)
 		eglSwapBuffersReal = get_from_libEGL("eglSwapBuffers");
 
+counter = 8;
 	switch(counter++) {
 	case 0:
 	case 1:
@@ -194,6 +197,7 @@ EGLAPI EGLContext EGLAPIENTRY eglCreateContext(EGLDisplay dpy, EGLConfig config,
 	if (!eglCreateContextReal)
 		eglCreateContextReal = get_from_libEGL("eglCreateContext");
 
+counter = 1;
 	switch(counter++) {
 	case 0:
 		fprintf(stderr, "NULL (guessed)\n");
@@ -222,6 +226,7 @@ EGLAPI EGLBoolean EGLAPIENTRY eglChooseConfig(EGLDisplay dpy, const EGLint *attr
 	if (!eglChooseConfigReal)
 		eglChooseConfigReal = get_from_libEGL("eglChooseConfig");
 
+counter = 1;
 	switch(counter++) {
 	case 0:
 		fprintf(stderr, "1 (guessed)\n");
@@ -246,6 +251,7 @@ EGLAPI EGLBoolean EGLAPIENTRY eglInitialize(EGLDisplay dpy, EGLint *major, EGLin
 	if (!eglInitializeReal)
 		eglInitializeReal = get_from_libEGL("eglInitialize");
 
+counter = 1;
 	switch(counter++) {
 	case 0:
 		fprintf(stderr, "1 (guessed)\n");
@@ -272,6 +278,7 @@ EGLAPI EGLBoolean EGLAPIENTRY eglMakeCurrent(EGLDisplay dpy, EGLSurface draw,
 	if (!eglMakeCurrentReal)
 		eglMakeCurrentReal = get_from_libEGL("eglMakeCurrent");
 
+counter = 2;
 	switch(counter++) {
 	case 0:
 	case 1:
@@ -297,6 +304,7 @@ EGLAPI EGLDisplay EGLAPIENTRY eglGetDisplay(EGLNativeDisplayType display_id)
 	if (!eglGetDisplayReal)
 		eglGetDisplayReal = get_from_libEGL("eglGetDisplay");
 
+counter = 1;
 	switch(counter++) {
 	case 0:
 		fprintf(stderr, "4 (lying)\n");
@@ -326,6 +334,7 @@ EGLAPI EGLSurface EGLAPIENTRY eglCreateWindowSurface(EGLDisplay dpy, EGLConfig c
 	if (!eglCreateWindowSurfaceReal)
 		eglCreateWindowSurfaceReal = get_from_libEGL("eglCreateWindowSurface");
 
+counter = 1;
 	switch(counter++) {
 	case 0:
 		fprintf(stderr, "0x4 (guessed)\n");
