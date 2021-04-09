@@ -30,9 +30,8 @@ Finally, run minecraft-pi with the following invokation:
 Gotchas
 -------
 
-Minecraft is run at full-screen for performance reasons.  Unfortunately,
-the Minecraft program doesn't have an "Exit" function, so you'll have to
-come up with your own way of killing it.
+This version of the wrapper runs Minecraft in a window to be able to close it
+and script it using Thonny or a different IDE.
 
 Design
 ------

@@ -359,10 +359,10 @@ counter = 1;
 
 
 int32_t graphics_get_display_size( const uint16_t display_number, uint32_t *width, uint32_t *height) {
-	*width = 2560;
-	*height = 1700;
+	*width = 848;
+	*height = 480;
 
-	SDL_SetVideoMode(*width, *height, 32, SDL_FULLSCREEN);// | SDL_RESIZABLE);
+	SDL_SetVideoMode(*width, *height, 32, SDL_RESIZABLE);
 	SDL_ShowCursor (SDL_DISABLE);
 	return 0;
 }
